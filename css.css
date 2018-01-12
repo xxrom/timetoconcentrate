@@ -1,0 +1,51 @@
+:root {
+  --border: 0px solid red;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+
+  border: var(--border);
+}
+
+.play-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 10em;
+
+  cursor: pointer;
+  border: var(--border);
+}
+
+.play-btn-img {
+  height: 90%;
+}
+
+.main-text {
+  display: flex;
+  justify-content: center;
+
+  border: var(--border);
+}
+
+.additional-text {
+  display: flex;
+  justify-content: center;
+
+  border: var(--border);
+}
