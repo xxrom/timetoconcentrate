@@ -1,6 +1,5 @@
-console.log('hello');
 
-window.onload = function() {
+// window.onload = function() {
   console.log('onLoad');
   var play = false;
   var volumeArray = [0, 0.33, 0.66, 1];
@@ -73,6 +72,8 @@ window.onload = function() {
     return `${x},${y} 0,0 ${x},${y}`;
   }
 
+  var size = 5;
+
   var heightSizeStart = 2.5;
   var heightSizeEnd = 5;
 
@@ -80,14 +81,38 @@ window.onload = function() {
   var widthSizeEnd = 1;
 
   var setPlayValue = `
+    M 0,0
+    c ${cCoord(0, heightSizeStart)}
+    ${cCoord(widthSizeStart, 0)}
+    ${cCoord(-widthSizeStart/2, -heightSizeStart/2)}
 
     M 0,5
-    c ${cCoord(widthSizeEnd, 0)}
+    c ${cCoord(0, -heightSizeStart)}
+    ${cCoord(widthSizeStart, 0)}
+    ${cCoord(widthSizeStart/2, -heightSizeStart/2)}
+    Z;
+
+    c ${cCoord(widthSizeEnd, 0)},
+    M 0,${heightSizeEnd}
     ${cCoord(0, -heightSizeEnd)}
-    ${cCoord(-widthSizeEnd/2, 0)}
+    ${cCoord(-widthSizeEnd, 0)}
+
+    M ${size - widthSizeEnd},${heightSizeEnd}
+    c ${cCoord(size - widthSizeEnd, 0)}
+    ${cCoord(widthSizeStart, 0)}
+    ${cCoord(widthSizeStart/2, -heightSizeStart/2)}
     Z;`;
+
+    // end
+    // M 0,${heightSizeEnd}
+    // c ${cCoord(widthSizeEnd, 0)}
+    // ${cCoord(0, -heightSizeEnd)}
+    // ${cCoord(-widthSizeEnd, 0)}
+    // Z;
     //${heightSizeEnd - heightSizeStart/2}
 
+
+    console.log(setPlayValue);
     svgAnimatePlay.setAttribute('values', setPlayValue);
 
   // playBtn.onclick = function() {
@@ -99,7 +124,7 @@ window.onload = function() {
   //   console.log('volume ' + volumeArray[volumeIndex]);
   //   player.volume = volumeArray[volumeIndex];
   // }
-}
+// }
 
 
 
