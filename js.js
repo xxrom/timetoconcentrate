@@ -82,44 +82,16 @@
 
   var spaceBetween = 2;
 
-  /*
-
-    M 0,0
-    c ${cCoord(0, heightSizeStart)}
-    ${cCoord(widthSizeStart, 0)}
-    ${cCoord(-widthSizeStart/2, -heightSizeStart/2)}
-
-    M 0,5
-    c ${cCoord(0, -heightSizeStart)}
-    ${cCoord(widthSizeStart, 0)}
-    ${cCoord(widthSizeStart/2, -heightSizeStart/2)}
-    Z;
-
-
-
-    M ${(size/2) - (spaceBetween/2) - widthSizeEnd}, ${heightSizeEnd}
-    c ${cCoord(widthSizeEnd, 0)},
-    ${cCoord(0, -heightSizeEnd)}
-    ${cCoord(-widthSizeEnd, 0)}
-
-    M ${(size/2) + (spaceBetween/2) + widthSizeEnd}, ${heightSizeEnd}
-    c
-    ${cCoord(-widthSizeEnd, 0)}
-    ${cCoord(0, -heightSizeEnd)}
-    ${cCoord(widthSizeEnd, 0)}
-    Z;
-  */
-
   var setPlayValue = `
     M 0,0
     c ${cCoord(0, heightSizeStart)}
     ${cCoord(widthSizeStart, 0)}
-    ${cCoord(-widthSizeStart/2, -heightSizeStart/2)}
+    ${cCoord(-widthSizeStart/10, -heightSizeStart/10)}
 
     M 0,5
     c ${cCoord(0, -heightSizeStart)}
     ${cCoord(widthSizeStart, 0)}
-    ${cCoord(-widthSizeStart/2, heightSizeStart/2)}
+    ${cCoord(-widthSizeStart/10, heightSizeStart/10)}
     Z;
 
     M ${(size/2) - (spaceBetween/2) - widthSizeEnd}, ${heightSizeEnd}
@@ -133,15 +105,6 @@
     ${cCoord(0, -heightSizeEnd)}
     ${cCoord(widthSizeEnd, 0)}
     Z;`;
-
-    // end
-    // M 0,${heightSizeEnd}
-    // c ${cCoord(widthSizeEnd, 0)}
-    // ${cCoord(0, -heightSizeEnd)}
-    // ${cCoord(-widthSizeEnd, 0)}
-    // Z;
-    //${heightSizeEnd - heightSizeStart/2}
-
 
     console.log(setPlayValue);
     svgAnimatePlay.setAttribute('values', setPlayValue);
