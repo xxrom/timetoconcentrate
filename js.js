@@ -80,7 +80,10 @@
   var widthSizeStart = 5;
   var widthSizeEnd = 1;
 
-  var setPlayValue = `
+  var spaceBetween = 2;
+
+  /*
+
     M 0,0
     c ${cCoord(0, heightSizeStart)}
     ${cCoord(widthSizeStart, 0)}
@@ -92,15 +95,43 @@
     ${cCoord(widthSizeStart/2, -heightSizeStart/2)}
     Z;
 
+
+
+    M ${(size/2) - (spaceBetween/2) - widthSizeEnd}, ${heightSizeEnd}
     c ${cCoord(widthSizeEnd, 0)},
-    M 0,${heightSizeEnd}
     ${cCoord(0, -heightSizeEnd)}
     ${cCoord(-widthSizeEnd, 0)}
 
-    M ${size - widthSizeEnd},${heightSizeEnd}
-    c ${cCoord(size - widthSizeEnd, 0)}
+    M ${(size/2) + (spaceBetween/2) + widthSizeEnd}, ${heightSizeEnd}
+    c
+    ${cCoord(-widthSizeEnd, 0)}
+    ${cCoord(0, -heightSizeEnd)}
+    ${cCoord(widthSizeEnd, 0)}
+    Z;
+  */
+
+  var setPlayValue = `
+    M 0,0
+    c ${cCoord(0, heightSizeStart)}
     ${cCoord(widthSizeStart, 0)}
-    ${cCoord(widthSizeStart/2, -heightSizeStart/2)}
+    ${cCoord(-widthSizeStart/2, -heightSizeStart/2)}
+
+    M 0,5
+    c ${cCoord(0, -heightSizeStart)}
+    ${cCoord(widthSizeStart, 0)}
+    ${cCoord(-widthSizeStart/2, heightSizeStart/2)}
+    Z;
+
+    M ${(size/2) - (spaceBetween/2) - widthSizeEnd}, ${heightSizeEnd}
+    c ${cCoord(widthSizeEnd, 0)},
+    ${cCoord(0, -heightSizeEnd)}
+    ${cCoord(-widthSizeEnd, 0)}
+
+    M ${(size/2) + (spaceBetween/2) + widthSizeEnd}, ${heightSizeEnd}
+    c
+    ${cCoord(-widthSizeEnd, 0)}
+    ${cCoord(0, -heightSizeEnd)}
+    ${cCoord(widthSizeEnd, 0)}
     Z;`;
 
     // end
